@@ -1,0 +1,20 @@
+.carousel img{
+    width: 100%;
+    height: 450px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* object-fit: scale-down; */
+    object-fit: cover; 
+    object-position: 100% 0%;
+}
+.carousel{
+    position: relative;
+    text-align: center;    
+}
+.img-text{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(-240%, -50%);
+}

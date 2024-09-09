@@ -1,0 +1,27 @@
+.app-bar{
+    /* Temporary Style */
+    /* margin-top: 80px; */
+    /* Permanent Style */   
+    /* padding: 7px;  */
+}
+.logo-img{
+    height: 'auto';
+    width: 100px;
+    filter: drop-shadow(1px 1px 1px white);
+    cursor: pointer;    
+}
+.logo-img:hover{
+    filter: drop-shadow(1px 1px 2px white);
+}
+.menu a{
+    padding: 0px 10px;
+    text-decoration: none;
+    color: #dd8404;   
+    font-size: medium;
+}
+
+.menu a:hover{
+    color: aliceblue;
+}
+
+
