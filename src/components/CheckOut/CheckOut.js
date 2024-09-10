@@ -1,11 +1,14 @@
 import { Avatar, Box, Button, Card, Container, Divider, IconButton, Paper } from '@mui/material';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { addToDatabaseCart, clearLocalShoppingCart, getDatabaseCart, removeFromDatabaseCart } from '../../utilities/databaseManager';
 import ProductData from '../../ProductData/an-nahl.json';
 import { CartContext } from '../../App';
 import { Link } from 'react-router-dom';
 
 const CheckOut = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     const [cartCount, setCartCount] = useContext(CartContext);
     //const [cartQty, setCartQty] = useState();
     const dataBaseCart = getDatabaseCart();
@@ -133,6 +136,7 @@ const CheckOut = () => {
                                     sx={{
                                         pb: 0.5,
                                         textDecoration: 'none',
+                                        color: 'black',
                                     }}
                                     >
                                         {product.name}

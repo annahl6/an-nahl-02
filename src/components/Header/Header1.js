@@ -10,8 +10,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import HomeIcon from '@mui/icons-material/Home';
 import { CartContext } from '../../App';
 
-const SearchBox = () => {  
-  
+const SearchBox = () => {
     return(
         <Paper
             component='form'
@@ -40,6 +39,9 @@ const SearchBox = () => {
 
 const Header1 = () => {
 
+    const handleHome =()=> {
+        window.scrollTo({top: 0, behavior: 'smooth'})
+    }
     const [cartCount] = useContext(CartContext);
 
     
@@ -89,7 +91,9 @@ const Header1 = () => {
                         textAlign: { xs: 'center', md: 'left' },
                     }}
                 >
-                    <IconButton>
+                    <IconButton
+                    onClick={handleHome}
+                    >
                         <Link to='/home'>
                             <Tooltip title='Home'><img className='logo-img' src={logo} alt='logo' /></Tooltip>
                         </Link>
@@ -216,7 +220,9 @@ const Header1 = () => {
                     display: {xs: 'none', md: 'flex'},
                 }}
                 >
-                    <IconButton>
+                    <IconButton                    
+                    onClick={handleHome}
+                    >
                         <Link to='/home'><Tooltip title= 'Home'><HomeIcon sx={{color: '#dd8404', '&:hover':{color:'white'}}}/></Tooltip></Link>                        
                     </IconButton>
                     <Divider orientation='vertical' flexItem sx={{bgcolor: '#dd8404'}}/>

@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './Products.css';
-import { Button, Card, CardContent, CardMedia, Container, Grid, Paper, Typography } from '@mui/material';
+import { Button, CardContent, CardMedia, Container, Grid, Paper, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import ProductData from '../../ProductData/an-nahl.json';
 import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
 import { CartContext } from '../../App';
+import ScrollToTop from 'react-scroll-to-top';
 
 const Products = (props) => {
     
@@ -49,11 +50,14 @@ const Products = (props) => {
     //console.log('Cart', cart);
     return (
         <>
-        <Typography align="center" sx={{ mt: 0 }}>ARABIC CALLIGRAPHY</Typography>
+        <Typography align="left" sx={{ ml: {xs: '1.33333333333333333333%' , sm: '1%', lg: '0.8%'}, fontWeight: 450, fontSize: {xs: 15, md: 20, lg:25}, my: 0.5}}>Wall Frame Of Arabic Calligraphy:</Typography>
         <Grid container
         sx={{
+            ml: {xs: '1.33333333333333333333%' , sm: '1%', lg: '0.8%'},
+            gap: {xs: '1.33333333333333333333%' , sm: '1%', lg: '0.8%'},
+            //ml: {xs: 3, lg: 5}
             //display: 'flex',
-            justifyContent: 'center',
+            //justifyContent: 'center',
             // justifyContent: 'space-stretch',
             // justifyContent: 'space-evenly',
             // justifyContent: 'space-around',            
@@ -61,16 +65,17 @@ const Products = (props) => {
             // justifyContent: 'space-evenly',
             //flexWrap: 'wrap',
         }}
-        >            
+        > 
             {
                 props.productData.map((product) => (                                          
-                        <Card
+                        <Grid                        
                         key={product.id}
-                        sx={{   
-                            maxWidth: {xs: '44%', sm: '30%', md: '23%'},                         
+                        size= {2}
+                        sx={{  
+                            maxWidth: {xs: '48%', sm: '32%', lg: '24%'},                         
                             //width: {xs: 159, sm:  238, md: 280, lg: 318},
                             borderRadius: 0,
-                            m: 1,
+                            my: 0.5,
                             border: 1,
                             borderColor: 'transparent',
                             boxShadow: 10,
@@ -81,7 +86,7 @@ const Products = (props) => {
                         }}
                         >
                             <Link
-                            to = {'/product/' + product.id}
+                            to={`/product/${product.id}`}
                             style={{
                                 textDecoration: 'none',
                                 color: 'black',                                
@@ -89,10 +94,9 @@ const Products = (props) => {
                             >
                             <CardMedia
                                 component='img'
-                                image={product.img}
-                                height="200"
-                                width= 'auto'
+                                image={product.img}                                
                                 alt= {product.name}
+                                //border = '1'
                             />
                             </Link>
                             <CardContent
@@ -100,20 +104,16 @@ const Products = (props) => {
                             }}
                             >
                             <Container disableGutters
+                            component={Link}
+                            to={`/product/${product.id}`}
                             sx={{
-                                minHeight: {xs: 95, lg: 57},
-                                maxHeight: {xs: 95, lg: 'auto'}
-                            }}
-                            >
-                            <Link
-                            to = {'/product/' + product.id}
-                            style={{
                                 textDecoration: 'none',
-                                //minHeight: 400,
-                                //color: 'black',                                
-                            }}>
-                            {product.name} || {product.title} || {product.size} || {product.color} Paint 
-                            </Link>
+                                color: 'black',
+                                //minHeight: {xs: 95, lg: 57},
+                                //maxHeight: {xs: 95, lg: 'auto'}
+                            }}
+                            >                            
+                            {product.title} || {product.size} || {product.color} Paint 
                             </Container>
                             <br/>
                             <b>৳ {product.priceWithoutFrame*0.65}</b> <s>৳ {product.priceWithoutFrame}</s> 
@@ -137,6 +137,7 @@ const Products = (props) => {
                                     width: '100%',
                                     justifyContent: 'center',
                                     borderRadius: 1,
+                                    textTransform: 'capitalize',
                                     boxShadow: 5,
                                     flexGrow: {xs: 1, lg: 0.5},
                                     //border: 1,
@@ -148,7 +149,7 @@ const Products = (props) => {
                                         }                                    
                                 }}
                             >                               
-                            ADD TO CART
+                            Add To Cart
                             </Button>
                             <Button
                              component = {Link}
@@ -162,6 +163,7 @@ const Products = (props) => {
                                     //mx: {xs:0, lg: 1},
                                     width: '100%',
                                     justifyContent: 'center',
+                                    textTransform: 'capitalize',
                                     borderRadius: 1,
                                     boxShadow: 5,
                                     flexGrow: 0.5,
@@ -177,9 +179,10 @@ const Products = (props) => {
                             Buy Now
                             </Button> 
                             </Paper>     
-                        </Card>                    
+                        </Grid>                    
                 ))
             }
+            <ScrollToTop smooth/>
         </Grid>
         </> 
     );

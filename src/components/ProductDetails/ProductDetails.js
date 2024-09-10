@@ -6,6 +6,9 @@ import { Box, Button, Card, CardContent, CardMedia, Divider } from '@mui/materia
 import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
 import { CartContext } from '../../App';
 const ProductDetails = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     const [cartCount, setCartCount] = useContext(CartContext);
     const { productId } = useParams();
@@ -44,7 +47,7 @@ const ProductDetails = () => {
     }
     return (
         <>
-        <Box className='img-title'
+        <Box
             sx={{
                 mt: 17,
                 mx: 2,
@@ -68,13 +71,7 @@ const ProductDetails = () => {
                     component='img'
                     image={selectedProduct.img}
                     alt={selectedProduct.name}
-                //border = '1'
-                // sx={{
-                //      position: 'relative',
-                //      left: '50%', 
-                //      top: '50%',
-                //      transform: 'translate(-50%, -50%)'
-                // }}                              
+                //border = '1'                                              
                 />
             </Card>
             <Card
@@ -100,7 +97,7 @@ const ProductDetails = () => {
                     <h2>{selectedProduct.name} || {selectedProduct.title} || {selectedProduct.size} || {selectedProduct.color} Paint</h2>
                     <h4>SKU: <span className='normal-text'>{selectedProduct.id}</span></h4>
                     <Divider />
-                    <s>৳{selectedProduct.priceWithoutFrame}</s>&nbsp;<span style={{ fontWeight: 'bold', fontSize: 25, color: 'red' }}>৳{selectedProduct.priceWithoutFrame * 0.65}</span>
+                    <p><s>৳{selectedProduct.priceWithoutFrame}</s>&nbsp;<span style={{ fontWeight: 'bold', fontSize: 25, color: 'red' }}>৳{selectedProduct.priceWithoutFrame * 0.65}</span></p>
                     <h4>Brand:&nbsp; <span className='normal-text'>An Nahl</span></h4>
                     {/* <h4>Art By: &nbsp;<span className='normal-text'>{selectedProduct.artist}</span></h4> */}
                     <h4>Status: &nbsp;<span style={{color: 'green'}}>In Stock</span></h4>
