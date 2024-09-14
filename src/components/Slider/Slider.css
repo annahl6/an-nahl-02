@@ -18,4 +18,23 @@
     right: 50%;
     transform: translate(-240%, -50%);
 }
+.welcome-msg{
+    text-align: center;
+    color: black;
+    /* padding: 15px 15px; */
+}
+.brand-name{
+    font-family: 'Lobster';
+    font-weight: 0;
+    font-style: normal;
+    animation-name: example; 
+    animation-duration: 2s; 
+    animation-iteration-count: infinite; 
+    animation-timing-function: ease;
+}
+@keyframes example {
+    from {color: black;}
+    50% {color: #9b6827;}
+    to {color: black;}
+  }
 

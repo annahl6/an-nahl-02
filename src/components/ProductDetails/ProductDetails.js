@@ -9,13 +9,11 @@ const ProductDetails = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
-
     const [cartCount, setCartCount] = useContext(CartContext);
     const { productId } = useParams();
     const selectedProduct = ProductData.find(product => product.id === productId);
     //console.log(selectedProduct);
     const [cart, setCart] = useState([]);
-
     useEffect(() => {
         const dataBaseCart = getDatabaseCart();
         const dataBaseCartIds = Object.keys(dataBaseCart);
@@ -48,19 +46,23 @@ const ProductDetails = () => {
     return (
         <>
         <Box
+            className = 'image-details'
             sx={{
-                mt: 17,
+                mt: {xs: 19, lg: 17},
                 mx: 2,
                 display: {xs: 'block', md: 'flex'},
-                //justifyContent: 'center',
+                //border: 1,
+                //borderColor: '#9b6827',
+                boxShadow: 5,
+                p: 2,               
             }}
         >
             {/* <hr/> */}
-            <Card
-                className='card-image'
+            <Box
+                className='image'
                 sx={{
                     flexGrow: 0.5,
-                    boxShadow: 5,
+                    //boxShadow: 5,
                     //height: 'auto',
                     //my: 'auto',
                     //border: 1,
@@ -71,97 +73,79 @@ const ProductDetails = () => {
                     component='img'
                     image={selectedProduct.img}
                     alt={selectedProduct.name}
-                //border = '1'                                              
+                    // border = '1'                                              
                 />
-            </Card>
-            <Card
-                className='card-title'
+            </Box>
+            <Box
+                className='details-btn'
                 sx={{
                     flexGrow: 0.5,
                     width: {xs:'100%', md: '50%'},
-                    boxShadow: 5,
-                    my: {xs: 2, md: 0}
-                    //border: 1,                               
+                    //boxShadow: 5,
                 }}
             >
-                <CardContent
+                <Box
+                    className = 'details'
                     sx={{
                         //border: 1,
                         position: 'relative',
                         left: {md:'50%'},
                         top: '50%',
                         transform: {md: 'translate(-50%, -50%)'},
-                        //m: 2,
                     }}
                 >
                     <h2>{selectedProduct.name} || {selectedProduct.title} || {selectedProduct.size} || {selectedProduct.color} Paint</h2>
                     <h4>SKU: <span className='normal-text'>{selectedProduct.id}</span></h4>
                     <Divider />
-                    <p><s>৳{selectedProduct.priceWithoutFrame}</s>&nbsp;<span style={{ fontWeight: 'bold', fontSize: 25, color: 'red' }}>৳{selectedProduct.priceWithoutFrame * 0.65}</span></p>
+                    <p><s>৳{selectedProduct.price}</s>&nbsp;<span style={{ fontWeight: 'bold', fontSize: 25, color: 'red' }}>৳{selectedProduct.priceTen}</span></p>
                     <h4>Brand:&nbsp; <span className='normal-text'>An Nahl</span></h4>
                     {/* <h4>Art By: &nbsp;<span className='normal-text'>{selectedProduct.artist}</span></h4> */}
                     <h4>Status: &nbsp;<span style={{color: 'green'}}>In Stock</span></h4>
                     <Divider />
-                <Box sx={{
-                    mt: 2,
-                    display: 'flex',
-                    //justifyContent: 'space-between',
-                    gap: 2,
-                }}>
-                <Button
-                    onClick={() => { handleAddtoCart(selectedProduct) }}
+                <Box 
+                    className = 'btn'
                     sx={{
-                        flexGrow: 0.5,
-                        bgcolor: '#dd8404',
-                        color: 'white',
-                        fontWeight: 'bold',
-                        py: 1.5,
-                        justifyContent: 'center',
-                        textAlign: 'center',
-                        boxShadow: 5,
-                        borderRadius: 0,
-                        cursor: 'pointer',
+                        mt: 2,
+                        display: 'flex',
+                        gap: 2,
+                }}
+                >
+                <Button
+                    className = 'cart-buy-btn'
+                    onClick={() => { handleAddtoCart(selectedProduct) }}
+                    sx={{                        
+                        bgcolor: '#9b6827',
+                        color: 'white',                        
+                        py: 1.5,                        
                         '&:hover': {
                             color: 'white',
-                            bgcolor: '#dd8404'
-                        },
-                        '&:onClick': {
-                            bgcolor: 'black',
-                        }
+                            bgcolor: '#9b6827'
+                        }                       
                     }}
                 >
                     Add To Cart
                 </Button>      
                 <Button
+                    className = 'cart-buy-btn'
                     component = {Link}
                     to = '/checkout'
                     onClick={() => { handleAddtoCart(selectedProduct) }}
                     sx={{  
-                        flexGrow: 0.5,                      
                         bgcolor: 'black',
                         color: 'white',
-                        fontWeight: 'bold',
                         py: 1.5,
-                        cursor: 'pointer',
-                        justifyContent: 'center',
-                        textAlign: 'center',
-                        borderRadius: 0,
-                        boxShadow: 5,
                         '&:hover': {
                             color: 'white',
                             bgcolor: 'black'
-                        },
-                        '&:onClick': {
-                            bgcolor: 'black',
                         }
                     }}
                 >
                 Buy Now
                 </Button>
                 </Box>
-                </CardContent>
+                </Box>
                 
-            </Card>
+            </Box>
         </Box>
         <Box
         sx={{

@@ -1,0 +1,9 @@
+.main-box{
+    margin: 0px 10px;
+    gap: 10px;
+}
+.quantity button{
+    padding: 0px 5px;
+    border: 1px solid grey;
+    border-radius: 0;
+}

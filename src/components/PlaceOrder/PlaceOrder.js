@@ -15,7 +15,7 @@ const PlaceOrder = () => {
 
             }}
         >
-            <h1 style={{color: 'black'}}> 🌹 Jajakallahu Khairan. Our Page is Under Construction 🌹</h1><h1 style={{color: 'black'}}> Please Confirm Your Order Using The Links Below </h1>
+            <h1 style={{ color: 'black' }}> আসসালামু আলাইকুম। <br /> আমাদের পেইজের কাজ এখনো চলোমান রয়েছে...</h1><h1 style={{ color: 'black' }}>আপনার ওর্ডারটি কনফার্ম করতে এবং বিস্তারিত জানতে নিচের লিংক ভিজিট করুন। ধন্যবাদ...<span role="img" aria-label="Snowman">&#127801;</span></h1>
             <Avatar variant='square'
                 sx={{
                     mt: 4,
@@ -26,11 +26,11 @@ const PlaceOrder = () => {
             >
                 <Button
                     component='a'
-                    href='https://wa.me/01576583605'
+                    href='https://wa.me/+8801576583605'
                     target="_blank"
                     color='success'
                 >
-                    <WhatsApp color='success' sx={{mr: 1}} />
+                    <WhatsApp color='success' sx={{ mr: 1 }} />
                     WhatsApp
                 </Button>
             </Avatar>
@@ -46,7 +46,7 @@ const PlaceOrder = () => {
                     target="_blank"
                     color='primary'
                 >
-                    <Facebook color='primary' sx={{mr: 1}}/>
+                    <Facebook color='primary' sx={{ mr: 1 }} />
                     Facebook
                 </Button>
             </Avatar>
