@@ -17,14 +17,14 @@ const App = () => {
   //console.log('From App', cartCount); //SUCCESS
   return (
     <CartContext.Provider value={[cartCount, setCartCount]}>
-    <BrowserRouter>
-      <Header1/>           
+    <BrowserRouter> 
+      <Header1/>                
       <Routes>
         <Route exact path="/" element={<Home/>}/>
         <Route path="/home" element={<Home/>} />
         <Route path="/blog" element={''} />
         <Route path="/product/:productId" element={<ProductDetails/>} />
-        <Route path="/checkout" element={<CheckOut/>} />
+        <Route path="/checkout" element={<CheckOut/>}/>
         <Route path="/placeorder" element={<PlaceOrder/>} />
         <Route path="/*" element={<h1>Not Found: 404</h1>} />
       </Routes>         

@@ -140,12 +140,14 @@ const Products = (props) => {
                                 <br />
                                 <b>৳{product.priceTen}</b> <s style={{ color: 'rgba(0, 0, 0, 0.5)' }}>৳{product.price}</s>
                             </CardContent>
-                            <Box sx={{
+                            <Box 
+                            sx={{
                                 display: { xs: 'block', lg: 'flex', },
                                 mb: 0.5,
                                 mx: 0.5,
                                 gap: 0.5,
-                            }}>
+                            }}
+                            >
                                 <Button
                                     className='cart-buy-btn'
                                     onClick={() => { handleAddtoCart(product) }}

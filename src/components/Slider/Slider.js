@@ -61,7 +61,7 @@ const Slider = () => {
                                 display: 'flex',
                                 //minHeight: { xs: 100, md: 200, lg: 300 },
                                 //width : { xs: 120, md: 300, lg: 400 },
-                                maxHeight: { xs: 90, md: 225, lg: 300 },
+                                //maxHeight: { xs: 90, md: 225, lg: 300 },
                                 minHeight: { xs: 90, md: 225, lg: 300 },
                                 pb: 0,
                                 bgcolor: 'white',
